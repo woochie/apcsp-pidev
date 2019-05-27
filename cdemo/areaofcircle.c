@@ -9,11 +9,11 @@ float areaOfCircle(float rad)
 
 int main()
 {
-  float a;
+  float ans;
   for(float rad = 3.5; rad <= 12.5; rad++)
   {
-    a = areaOfCircle(rad);
-    printf("The circle that has a radius of %f has an area that is equal to %f\n", rad, a);
+    ans = areaOfCircle(rad);
+    printf("The circle that has a radius of %f has an area that is equal to %f\n", rad, ans);
   
   }
 
