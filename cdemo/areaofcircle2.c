@@ -2,26 +2,36 @@
 
 float areaOfCircle(float rad) 
 {
-  float area = (3.14 * rad * rad);
+  float area = (3.14159265358979323846 * rad * rad);
   return area;
 }
 
 int main(int argc, char* argv[])
 {
-  int arg = 0;
-  while (arg < argc)
+ if (argc != 3)
   {
-    printf("%d to %s\n", arg, argv[arg]);
-    arg++;
+    printf("%s : expected 2 args, please enter two floats\n", argv[0]);
+    return 1;
   }
-  float first, second;
-  printf("Radius 1:\n");
-  scanf("%f", &first);
-  printf("Radius 2:\n");
-  scanf("%f", &second);
+  
+  float first;
+  int found = sscanf(argv[1], "%f", &first);
+  if (found != 1)
+    {
+	printf("Not a decimal, enter two floats\n");
+	return 1;
+    }
+
+  float second;
+  found = sscanf(argv[2], "%f", &second);
+  if (found != 1)
+    {
+	printf("Second not a decimal, enter two floats\n");
+	return 1;
+    }
   for (float rad = first; rad <= second; rad++)
     {
 	float result = areaOfCircle(rad);
-	printf("The area of the radius that is equal to %f is %f\n", rad, result);
+	printf("Area at r = %f: %f\n", rad, result);
     }
 }
